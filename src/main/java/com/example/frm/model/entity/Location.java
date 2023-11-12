@@ -45,6 +45,11 @@ public abstract class Location {
         return new double[] {target[0] - origin[0], target[1] - origin[1], target[2] - origin[2]};
     }
 
+    public double[] sumVectors(double[] origin, double[] target){
+
+        return new double[] {target[0] + origin[0], target[1] + origin[1], target[2] + origin[2]};
+    }
+
     public double[] resizeVector(double[] vector, double actualLenght, double desiredLenght){
 
         double cof = actualLenght/desiredLenght;

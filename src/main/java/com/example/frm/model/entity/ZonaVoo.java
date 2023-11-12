@@ -1,9 +1,22 @@
 package com.example.frm.model.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "ZonasVoo")
 public class ZonaVoo extends Location{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "radius")
     public double radius;
+
+    @Column(name = "size")
     public double size;
+
+    @Column(name = "zonaVoo")
     public TipoZonaVoo zonaVoo;
 
     public double getRadius() {
@@ -43,7 +56,7 @@ public class ZonaVoo extends Location{
 
     public Boolean inAltitude(double height){
 
-        if(height >= this.getHeight() && height <= this.getHeight()){
+        if(height >= this.getHeight() && height <= this.getHeight()+this.size){
             return Boolean.TRUE;
         }else{
             return Boolean.FALSE;
@@ -55,7 +68,7 @@ public class ZonaVoo extends Location{
         double routeDistance = this.getDistance(vector);
         return this.resizeVector(vector, routeDistance, distance);
     }
-    public Boolean willCrossZone(Location origin, Location target){
+    public Boolean willCrossZone(Location aircraft, Location destiny){
 
         double[] direction = origin.getDirection(this);
         double[] route = origin.getDirection(target);
