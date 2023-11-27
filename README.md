@@ -35,7 +35,7 @@ ou
 
 
 
-### Criar base de dados PostgreSQL para B2VN Auth API
+
 
     $ docker pull postgres
 
