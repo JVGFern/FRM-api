@@ -30,7 +30,7 @@ ou
 
 ### Criar o container com o parametro --name para especificar o network
 
-    $ docker container run --network b2vn --name radar -p 8081:8081 -d frm-api
+    $ docker container run --network frm --name radar -p 8081:8081 -d frm-api
    
 
 
